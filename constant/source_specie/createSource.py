@@ -38,7 +38,6 @@ for sp_i in species_names:
         output2.write('\t\tcodeCorrect\n\t\t#{\n\n\t\t#};\n\n')
         output2.write('\t\tcodeAddSup\n\t\t#{\n\n')
         output2.write('\t\t\tconst vectorField& C = mesh_.C();\n')
-        output2.write('\t\t\tconst scalarField& V = mesh_.V(); \n')
         output2.write('\t\t\tconst volScalarField& %s_sys =  mesh_.lookupObject<volScalarField>("%s"); \n' % (sp_i, sp_i))
         output2.write('\t\t\tscalarField& specieSource = eqn.source(); \n')
         output2.write('\t\t\tforAll(C, i)\n\t\t\t{\n\t\t\t\tspecieSource[i] *= %s_sys[i];\n\t\t\t}' % sp_i)

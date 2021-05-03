@@ -181,9 +181,7 @@ motored_pressure_energy
 
         codeAddSup
         #{
-            const volScalarField& rho_sys =  mesh_.lookupObject<volScalarField>("rho");
-            const volScalarField& P_sys =  mesh_.lookupObject<volScalarField>("p");
-	    volScalarField enthalpy = mesh_.lookupObject<volScalarField>("h");
+	        volScalarField enthalpy = mesh_.lookupObject<volScalarField>("h");
             const vectorField& C = mesh_.C();                    // List of cell centres
             scalarField& energySource = eqn.source();                //defining source
             forAll(C, i)
