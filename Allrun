@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Generate source terms
+cd constant/source_specie/
+./generateSource
+cd ../../
+
+#Cleanup and run
+rm -rf postProcessing
+blockMesh
+reactingFoam
+
+# Plot and compare
+python3 plot.py
