@@ -55,14 +55,10 @@ motored_pressure_mass
             const volScalarField& rho_sys =  mesh_.lookupObject<volScalarField>("rho");
             const volScalarField& P_sys =  mesh_.lookupObject<volScalarField>("p");
 
-            //scalar pAvg = P_sys.weightedAverage(mesh_.V()).value();                //averageValue of the volScalarField
-            //scalar rhoAvg = rho_sys.weightedAverage(mesh_.V()).value();                //averageValue of the volScalarField
-
             const vectorField& C = mesh_.C();                    // List of cell centres
-	        const scalarField& V = mesh_.V();                    // List of cell volumes
+	    const scalarField& V = mesh_.V();                    // List of cell volumes
             scalarField& massSource = eqn.source();                //defining source
             const scalar mdot = ((P0m*(pow(g,2))*n*pow(constant::mathematical::pi,2)*(2*t-2*t0))/ (pow(tc,2)*pow(((pow(g,2)*pow(constant::mathematical::pi,2)*pow((t-t0),2))/pow(tc,2)+1),(n+1))));
-            //scalar sourceTerm = rhoAvg/pAvg*mdot;
             forAll(C, i)
             {
                 massSource[i] =  mdot*rho_sys[i]/P_sys[i]*V[i];
