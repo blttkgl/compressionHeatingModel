@@ -38,7 +38,7 @@ fvOptions```
 
 ## Getting help and reporting bugs
 
-Please submit a GitHub issue if you found a bug in the program. If you need help with the software or have further questions, contact bulut.tekgul@aalto.fi.
+Please submit a GitHub issue if you found a bug in the program. If you need help with the software or have further questions, contact btekgul@anl.gov.
 
 ## Citation
 If you use our model, please cite the publication describing its implementation [[1]](#1).
