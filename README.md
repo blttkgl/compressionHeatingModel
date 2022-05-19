@@ -8,9 +8,14 @@ In many combustion applications such as Reactivity Controlled Compression Igniti
 ## Implementation
 This model adds a compression heating source term to the governing N-S equations to account for the thermophysical changes during compression. We implemented this source term approach  OpenFOAM via fvOptions [[1]](#1), following the implementations by [[2]](#2) and [[3]](#3), 
 
-![equation](https://latex.codecogs.com/png.image?\dpi{110}&space;P_m(t)&space;=&space;P_{0,m}[1&plus;g^2\pi^2\frac{{t-t_0}^2}{{t_c}^2}]^{-n},)
+$$ P_m(t) = P_{0,m}[1+g^2\pi^2 {t-t_0^2 \over 2a }],$$
 
-![equation](https://latex.codecogs.com/png.image?\dpi{110}&space;\dot{m}&space;=&space;\frac{\rho}{P}\frac{dP_m}{dt},)
+$$ \dot m = {\rho \over P} {dP_m \over dt},$$
+
+
+<!---![equation](https://latex.codecogs.com/png.image?\dpi{110}&space;P_m(t)&space;=&space;P_{0,m}[1&plus;g^2\pi^2\frac{{t-t_0}^2}{{t_c}^2}]^{-n},)
+
+![equation](https://latex.codecogs.com/png.image?\dpi{110}&space;\dot{m}&space;=&space;\frac{\rho}{P}\frac{dP_m}{dt},)---> 
 
 where P<sub>0,m</sub> is the desired motored pressure value at the TDC, t<sub>c</sub> is the time it takes for one crank rotation, t<sub>0</sub> is the time at the TDC point and g and n are model constants for matching the engine geometry. Note that this model introduces mass to your system through a mass source term to increase/decrease the pressure instead of changing the system volume. Therefore, while your species mass fractions are conserved, your mass is not. This may be an issue especially if you are interested with doing an emission analysis in ppm units.
 
